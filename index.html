@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildPro - Магазин строительных материалов</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <div class="crane-icon">
+                            <div class="crane-base"></div>
+                            <div class="crane-tower"></div>
+                            <div class="crane-arm"></div>
+                            <div class="crane-hook"></div>
+                        </div>
+                        <span class="logo-text">Build<span class="logo-highlight">Pro</span></span>
+                    </div>
+                    <p class="tagline">Качество для вашего строительства</p>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active" data-page="home"><i class="fas fa-home"></i> <span>Главная</span></a></li>
+                        <li><a href="#about" class="nav-link" data-page="about"><i class="fas fa-info-circle"></i> <span>О нас</span></a></li>
+                        <li><a href="#catalog" class="nav-link" data-page="catalog"><i class="fas fa-th-list"></i> <span>Каталог</span></a></li>
+                        <li><a href="#services" class="nav-link" data-page="services"><i class="fas fa-tools"></i> <span>Услуги</span></a></li>
+                        <li><a href="#contact" class="nav-link" data-page="contact"><i class="fas fa-address-book"></i> <span>Контакты</span></a></li>
+                        <li><a href="#cart" class="nav-link cart-link" data-page="cart" id="cartLink"><i class="fas fa-shopping-cart"></i> <span>Корзина</span> <span class="cart-count" id="cartCount">0</span></a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Корзина покупок (скрытая по умолчанию) -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Корзина</h3>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Товары будут добавляться динамически -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Ваша корзина пуста</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span class="total-price" id="cartTotal">0 ₽</span>
+            </div>
+            <button class="btn btn-primary checkout-btn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <!-- Главный контент -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Домашняя страница -->
+            <section id="home" class="page active">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Строительные материалы <span class="hero-highlight">премиум-класса</span></h1>
+                        <p class="hero-subtitle">Всё для ремонта и строительства от ведущих производителей с гарантией качества</p>
+                        <div class="hero-buttons">
+                            <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
+                            <a href="#services" class="btn btn-secondary">Наши услуги</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="construction-icons">
+                            <div class="construction-icon"><i class="fas fa-hammer"></i></div>
+                            <div class="construction-icon"><i class="fas fa-paint-roller"></i></div>
+                            <div class="construction-icon"><i class="fas fa-tools"></i></div>
+                            <div class="construction-icon"><i class="fas fa-ruler-combined"></i></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Гарантия качества</h3>
+                        <p>Все материалы проходят строгий контроль качества и имеют сертификаты</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Быстрая доставка</h3>
+                        <p>Доставка материалов на объект в течение 24 часов по Москве и области</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Профессиональные консультации</h3>
+                        <p>Помощь в выборе материалов и расчете объемов от опытных специалистов</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3>Выгодные цены</h3>
+                        <p>Скидки постоянным клиентам и выгодные условия для строительных компаний</p>
+                    </div>
+                </div>
+                
+                <div class="popular-products">
+                    <div class="section-header">
+                        <h2 class="section-title">Популярные товары</h2>
+                        <a href="#catalog" class="view-all">Все товары <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="product-image cement">
+                                <div class="product-badge">Хит продаж</div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Цемент М500 Д0</h3>
+                                <p>Высококачественный цемент для любых строительных работ, мешок 50 кг</p>
+                                <div class="product-price">450 ₽/мешок</div>
+                                <button class="btn btn-outline add-to-cart" data-id="1" data-name="Цемент М500 Д0" data-price="450">В корзину</button>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image bricks">
+                                <div class="product-badge">Акция</div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Кирпич строительный</h3>
+                                <p>Красный кирпич для кладки стен и перегородок, размер 250x120x65 мм</p>
+                                <div class="product-price">25 ₽/шт</div>
+                                <button class="btn btn-outline add-to-cart" data-id="2" data-name="Кирпич строительный" data-price="25">В корзину</button>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image boards">
+                                <div class="product-badge">Новинка</div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Доска обрезная</h3>
+                                <p>Сосновая доска для строительства и отделки, 1 сорт, влажность 12-14%</p>
+                                <div class="product-price">12 000 ₽/м³</div>
+                                <button class="btn btn-outline add-to-cart" data-id="3" data-name="Доска обрезная" data-price="12000">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Страница "О нас" -->
+            <section id="about" class="page">
+                <h2 class="section-title">О компании BuildPro</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="intro-text">Мы работаем на рынке строительных материалов с 2010 года, предлагая нашим клиентам только качественную продукцию от проверенных производителей.</p>
+                        
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="highlight-text">
+                                    <h4>Надежные поставщики</h4>
+                                    <p>Работаем напрямую с производителями, что гарантирует качество и лучшие цены</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="highlight-text">
+                                    <h4>Опытные консультанты</h4>
+                                    <p>Наши специалисты имеют строительное образование и опыт работы от 5 лет</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-warehouse"></i>
+                                </div>
+                                <div class="highlight-text">
+                                    <h4>Собственный склад</h4>
+                                    <p>Площадь склада 5000 м² позволяет всегда иметь в наличии широкий ассортимент</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-number">12+</div>
+                                <div class="stat-label">Лет на рынке</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">5000+</div>
+                                <div class="stat-label">Товаров в ассортименте</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">2500+</div>
+                                <div class="stat-label">Довольных клиентов</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Доставка по заявкам</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="construction-image"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Страница каталога -->
+            <section id="catalog" class="page">
+                <div class="catalog-header">
+                    <h2 class="section-title">Каталог товаров</h2>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Поиск товаров...">
+                    </div>
+                </div>
+                
+                <div class="catalog-filters">
+                    <button class="filter-btn active" data-filter="all">Все товары</button>
+                    <button class="filter-btn" data-filter="materials">Строительные материалы</button>
+                    <button class="filter-btn" data-filter="tools">Инструменты</button>
+                    <button class="filter-btn" data-filter="finishing">Отделочные материалы</button>
+                    <button class="filter-btn" data-filter="plumbing">Сантехника</button>
+                    <button class="filter-btn" data-filter="electrical">Электрика</button>
+                </div>
+                
+                <div class="catalog-items">
+                    <!-- Элементы каталога будут добавляться через JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Страница услуг -->
+            <section id="services" class="page">
+                <h2 class="section-title">Наши услуги</h2>
+                <div class="services-intro">
+                    <p>Мы предлагаем полный спектр услуг для вашего строительства или ремонта. Наши специалисты помогут на всех этапах — от расчета материалов до доставки и разгрузки на объекте.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>Расчет материалов</h3>
+                        <p>Помощь в точном расчете необходимого количества строительных материалов для вашего проекта</p>
+                        <a href="#contact" class="service-link">Заказать <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-truck-loading"></i>
+                        </div>
+                        <h3>Доставка и разгрузка</h3>
+                        <p>Организация доставки и разгрузки материалов на вашем объекте с использованием спецтехники</p>
+                        <a href="#contact" class="service-link">Заказать <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>Консультация специалиста</h3>
+                        <p>Выезд специалиста на объект для оценки и консультации по выбору материалов</p>
+                        <a href="#contact" class="service-link">Заказать <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Гарантийное обслуживание</h3>
+                        <p>Предоставление гарантии на все товары и послепродажное обслуживание</p>
+                        <a href="#contact" class="service-link">Заказать <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h3>Хранение материалов</h3>
+                        <p>Возможность хранения купленных материалов на нашем складе до начала работ</p>
+                        <a href="#contact" class="service-link">Заказать <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Подбор подрядчиков</h3>
+                        <p>Помощь в поиске проверенных строительных бригад и подрядчиков</p>
+                        <a href="#contact" class="service-link">Заказать <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-form">
+                    <div class="form-container">
+                        <div class="form-info">
+                            <h3>Заказать услугу</h3>
+                            <p>Оставьте заявку, и наш менеджер свяжется с вами в течение 15 минут для уточнения деталей</p>
+                            <div class="contact-promo">
+                                <div class="contact-promo-item">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>
+                                        <h4>Позвоните нам</h4>
+                                        <p>+7 (495) 123-45-67</p>
+                                    </div>
+                                </div>
+                                <div class="contact-promo-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Работаем без выходных</h4>
+                                        <p>Пн-Вс: 8:00-22:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="serviceRequestForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Телефон" required>
+                            </div>
+                            <div class="form-group">
+                                <select required>
+                                    <option value="" disabled selected>Выберите услугу</option>
+                                    <option value="delivery">Доставка</option>
+                                    <option value="calculation">Расчет материалов</option>
+                                    <option value="consultation">Консультация специалиста</option>
+                                    <option value="storage">Хранение материалов</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Дополнительная информация" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Заказать услугу</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Страница контактов -->
+            <section id="contact" class="page">
+                <h2 class="section-title">Контакты</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Адрес</h3>
+                                <p>г. Москва, ул. Строителей, д. 25</p>
+                                <p class="contact-note">Ближайшая станция метро: Строгино</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Телефон</h3>
+                                <p>+7 (495) 123-45-67</p>
+                                <p>+7 (800) 123-45-68 (бесплатно по РФ)</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>info@buildpro.ru</p>
+                                <p>sales@buildpro.ru (для оптовых заказов)</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Часы работы</h3>
+                                <p>Пн-Пт: 8:00-20:00</p>
+                                <p>Сб-Вс: 9:00-18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-map">
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <div class="map-overlay">
+                                    <h4><i class="fas fa-map-marker-alt"></i> Наш магазин</h4>
+                                    <p>г. Москва, ул. Строителей, д. 25</p>
+                                    <p>Парковка для клиентов: 30 мест</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="callback-form">
+                    <div class="form-header">
+                        <h3>Обратный звонок</h3>
+                        <p>Заполните форму, и мы перезвоним вам в удобное время</p>
+                    </div>
+                    <form id="callbackForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Телефон" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Сообщение" rows="4"></textarea>
+                        </div>
+                        <div class="form-footer">
+                            <div class="form-agreement">
+                                <input type="checkbox" id="agreement" required>
+                                <label for="agreement">Согласен с обработкой персональных данных</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Корзина (отдельная страница для мобильных) -->
+            <section id="cart" class="page">
+                <div class="cart-page">
+                    <h2 class="section-title">Корзина покупок</h2>
+                    <div class="cart-page-content" id="cartPageItems">
+                        <!-- Товары из корзины будут добавляться динамически -->
+                        <div class="empty-cart-page">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Ваша корзина пуста</h3>
+                            <p>Добавьте товары из каталога, чтобы сделать заказ</p>
+                            <a href="#catalog" class="btn btn-primary">Перейти в каталог</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <div class="crane-icon">
+                            <div class="crane-base"></div>
+                            <div class="crane-tower"></div>
+                            <div class="crane-arm"></div>
+                            <div class="crane-hook"></div>
+                        </div>
+                        <span class="logo-text">Build<span class="logo-highlight">Pro</span></span>
+                    </div>
+                    <p class="footer-tagline">Ваш надежный партнер в строительстве с 2010 года</p>
+                    <div class="footer-social">
+                        <h4>Мы в социальных сетях</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon vk"><i class="fab fa-vk"></i></a>
+                            <a href="#" class="social-icon telegram"><i class="fab fa-telegram"></i></a>
+                            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h4>Каталог</h4>
+                        <ul>
+                            <li><a href="#catalog" data-filter="materials">Строительные материалы</a></li>
+                            <li><a href="#catalog" data-filter="tools">Инструменты</a></li>
+                            <li><a href="#catalog" data-filter="finishing">Отделочные материалы</a></li>
+                            <li><a href="#catalog" data-filter="plumbing">Сантехника</a></li>
+                            <li><a href="#catalog" data-filter="electrical">Электрика</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="links-column">
+                        <h4>Компания</h4>
+                        <ul>
+                            <li><a href="#about">О нас</a></li>
+                            <li><a href="#services">Услуги</a></li>
+                            <li><a href="#contact">Контакты</a></li>
+                            <li><a href="#services">Доставка и оплата</a></li>
+                            <li><a href="#services">Гарантия и возврат</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="links-column">
+                        <h4>Полезное</h4>
+                        <ul>
+                            <li><a href="#">Блог о строительстве</a></li>
+                            <li><a href="#">Калькулятор материалов</a></li>
+                            <li><a href="#">Советы по ремонту</a></li>
+                            <li><a href="#">Партнерская программа</a></li>
+                            <li><a href="#">Карьера в компании</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Подпишитесь на рассылку</h4>
+                    <p>Узнавайте первыми о скидках, акциях и новых поступлениях товаров</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="newsletter-input">
+                            <input type="email" placeholder="Ваш email" required>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                        <div class="form-agreement">
+                            <input type="checkbox" id="newsletterAgreement" required>
+                            <label for="newsletterAgreement">Согласен с обработкой персональных данных</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="payment-methods">
+                    <h4>Принимаем к оплате:</h4>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-mir"></i>
+                        <i class="fas fa-credit-card"></i>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <p>&copy; 2010-2023 BuildPro. Все права защищены.</p>
+                    <p>ОГРН 1234567890123, ИНН 1234567890</p>
+                    <p><a href="#">Политика конфиденциальности</a> | <a href="#">Пользовательское соглашение</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="mobile.js"></script> <!-- Подключаем мобильный JS -->
+
+</body>
+</html>
