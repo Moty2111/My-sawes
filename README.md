@@ -8,6 +8,7 @@
   <img src="https://img.shields.io/badge/Adaptive-Yes-success?style=for-the-badge" />
 </p>
 ---
+
 ## 🌐 Демонстрация
 
 > 🚀 **Живая версия проекта доступна по ссылке:**  
